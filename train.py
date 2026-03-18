@@ -11,13 +11,22 @@ import random   # random.seed, random.choices, random.gauss, random.shuffle
 random.seed(42) # Let there be order among chaos
 
 # Let there be a Dataset `docs`: list[str] of documents (e.g. a list of names)
-if not os.path.exists('input.txt'):
+"""if not os.path.exists('input.txt'):
     import urllib.request
     names_url = 'https://raw.githubusercontent.com/karpathy/makemore/988aa59/names.txt'
     urllib.request.urlretrieve(names_url, 'input.txt')
 docs = [line.strip() for line in open('input.txt') if line.strip()]
 random.shuffle(docs)
+print(f"num docs: {len(docs)}")"""
+
+# Custom Fruit Dataset
+docs = ["apple", "banana", "cherry", "dragonfruit", "elderberry", "fig", "grape", 
+        "honeydew", "kiwi", "lemon", "mango", "nectarine", "orange", "papaya", 
+        "quince", "raspberry", "strawberry", "tangerine", "watermelon"]
+
+random.shuffle(docs)
 print(f"num docs: {len(docs)}")
+
 
 # Let there be a Tokenizer to translate strings to sequences of integers ("tokens") and back
 uchars = sorted(set(''.join(docs))) # unique characters in the dataset become token ids 0..n-1
